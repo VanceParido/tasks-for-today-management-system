@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2026 at 12:42 PM
+-- Generation Time: Sep 28, 2026 at 01:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,33 +18,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ci4_pos_tfa2`
+-- Database: `tasks_for_today_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customers`
+-- Table structure for table `tasks`
 --
 
-CREATE TABLE `customers` (
+CREATE TABLE `tasks` (
   `id` int(11) NOT NULL,
-  `full_name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `phone` varchar(20) DEFAULT NULL,
+  `title` varchar(150) NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'pending',
+  `task_date` date NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `customers`
+-- Dumping data for table `tasks`
 --
 
-INSERT INTO `customers` (`id`, `full_name`, `email`, `phone`, `created_at`) VALUES
-(1, 'Juan Dela Cruz', 'juan@example.com', '09171234567', '2026-09-25 18:22:37'),
-(2, 'Maria Santos', 'maria@example.com', '09181234567', '2026-09-25 18:22:37'),
-(3, 'Pedro Reyes', 'pedro@example.com', '09191234567', '2026-09-25 18:22:37'),
-(4, 'Ana Garcia', 'ana@example.com', '09201234567', '2026-09-25 18:22:37'),
-(5, 'Luis Mendoza', 'luis@example.com', '09211234567', '2026-09-25 18:22:37');
+INSERT INTO `tasks` (`id`, `title`, `status`, `task_date`, `created_at`) VALUES
+(1, 'Review project requirements', 'pending', '2026-09-28', '2026-09-28 18:48:34'),
+(2, 'Create database tables', 'completed', '2026-09-28', '2026-09-28 18:48:34'),
+(3, 'Build the welcome dashboard', 'pending', '2026-09-28', '2026-09-28 18:48:34'),
+(4, 'Prepare task list page', 'pending', '2026-09-29', '2026-09-28 18:48:34'),
+(5, 'Test database connection', 'completed', '2026-09-29', '2026-09-28 18:48:34'),
+(6, 'Create profile page', 'pending', '2026-09-27', '2026-09-28 18:48:34'),
+(7, 'Write About page content', 'completed', '2026-09-27', '2026-09-28 18:48:34'),
+(8, 'Upload project to GitHub', 'pending', '2026-09-30', '2026-09-28 18:48:34');
 
 -- --------------------------------------------------------
 
@@ -56,6 +59,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `full_name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -63,21 +67,17 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `full_name`, `created_at`) VALUES
-(1, 'admin', 'System Administrator', '2026-09-25 18:22:37'),
-(2, 'juan01', 'Juan Dela Cruz', '2026-09-25 18:22:37'),
-(3, 'maria02', 'Maria Santos', '2026-09-25 18:22:37'),
-(4, 'pedro03', 'Pedro Reyes', '2026-09-25 18:22:37'),
-(5, 'ana04', 'Ana Garcia', '2026-09-25 18:22:37');
+INSERT INTO `users` (`id`, `username`, `full_name`, `email`, `created_at`) VALUES
+(1, 'vanceparido', 'Vance Uriele Parido', 'vanceparido@example.com', '2026-09-28 18:48:34');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `customers`
+-- Indexes for table `tasks`
 --
-ALTER TABLE `customers`
+ALTER TABLE `tasks`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -92,16 +92,16 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `customers`
+-- AUTO_INCREMENT for table `tasks`
 --
-ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

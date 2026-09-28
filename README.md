@@ -1,30 +1,38 @@
-# CodeIgniter POS Foundation
+# Tasks for Today Management System
 
-A four-page Point-of-Sale foundation application created using CodeIgniter 4.
+A CodeIgniter 4 web application for viewing daily tasks, all tasks, a demo user profile, and developer information.
+
+## Developer
+
+Vance Uriele Parido
+
+## Features
+
+- Welcome page showing only tasks scheduled for today
+- Task List page showing all tasks ordered by date
+- Profile page showing one demo user
+- About page identifying the developer
+- MySQL database connection using CodeIgniter models
 
 ## Pages
 
-- `/` - Landing page
-- `/about` - About page
-- `/customers` - Customer Accounts
-- `/users` - User Accounts
+- `/` - Welcome page and today's tasks
+- `/tasks` - Complete task list
+- `/profile` - Demo user profile
+- `/about` - Developer information
 
-## Requirements
+## Database Setup
 
-- PHP 8.2 or newer
-- CodeIgniter 4
-- Composer
-- Apache or another PHP web server
+1. Start Apache and MySQL in XAMPP.
+2. Open phpMyAdmin at `http://localhost/phpmyadmin`.
+3. Create a database named `tasks_for_today_db`.
+4. Import `tasks_for_today_db.sql`.
+5. Configure the `.env` file:
 
-## How to Run
-
-1. Clone this repository.
-2. Run `composer install`.
-3. Copy `env` to `.env`.
-4. Configure `app.baseURL`.
-5. Start Apache or run `php spark serve`.
-6. Open the application in a browser.
-
-## Data
-
-Customer and user records currently use static PHP arrays. No database is used in this activity.
+```ini
+database.default.hostname = localhost
+database.default.database = tasks_for_today_db
+database.default.username = root
+database.default.password =
+database.default.DBDriver = MySQLi
+database.default.port = 3306

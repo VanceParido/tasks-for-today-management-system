@@ -1,6 +1,6 @@
 <?php
 
-$routes->get('/', 'Pages::index');
-$routes->get('about', 'Pages::about');
-$routes->get('customers', 'Customers::index');
-$routes->get('users', 'Users::index');
+$routes->get('/', 'TaskController::index');
+$routes->get('tasks', 'TaskController::tasks');
+$routes->get('profile', 'TaskController::profile');
+$routes->get('about', 'TaskController::about');

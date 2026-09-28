@@ -1,35 +1,25 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+</head>
+<body>
+    <h1>Tasks for Today Management System</h1>
 
-namespace App/Controllers;
+    <nav>
+        <a href="/">Welcome</a> |
+        <a href="/tasks">Task List</a> |
+        <a href="/profile">Profile</a> |
+        <a href="/about">About</a>
+    </nav>
 
-class Pages extends BaseController
-{
-	public function index()
-	{
-		$data = [
-			'title' => 'Home',
-			'heading' => 'Welcome to CodeIgniter 4',
-		];
-		return view ('pages/home', $data);
-	}
-	
-	public function about()
-	{
-		$data = [
-			'title' => 'About Us',
-			'heading' => 'About Our Application',
-			'message' => 'This application demonstrates routes, controllers, views, and models.',
-			];
-		return view ('pages/about', $data);
-	}
-	
-	public function profile (int $studentId)
-	{
-		$data = [
-			'title' => 'Student Profile',
-			'studentId' => $studentId,
-			];
-		return view('pages/profile',$data);
-}
+    <h2>About the Developer</h2>
 
->
+    <p>
+        This Tasks for Today Management System was developed by
+        Vance Uriele Parido for IT0049 Web System Technologies.
+    </p>
+</body>
+</html>
